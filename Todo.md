@@ -1,0 +1,13 @@
+- setting something to quit in a faster way. 
+- study and understand the config more
+- binding to collapce all folders
+- using tmux prfoessinaly
+- using mini.ai
+- learn more about mini.nvim
+- see the the dev guy who just converted to nvim's config
+- using this config with obsidian. 
+- upload to git 
+- does work with web
+- make a shortuct for vim sessions
+- explore ctrl-o and ctrl-i
+- change fontsize and line-height
