@@ -26,8 +26,8 @@ vim.opt.expandtab = true-- not sure
 vim.opt.smartindent = true -- not sure
 vim.opt.termguicolors = true  -- not sure
 vim.opt.wrap = false
-vim.opt.scrolloff = 8
-vim.opt.sidescrolloff = 8
+vim.opt.scrolloff = 20
+vim.opt.sidescrolloff = 20
 vim.opt.clipboard = "unnamedplus"
 
 -- Move between buffers using Tab / Shift+Tab
@@ -35,5 +35,9 @@ vim.keymap.set("n", "<Tab>", ":bnext<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>", { noremap = true, silent = true }) 
 
 -- Close the current buffer using Ctrl+w
-vim.keymap.set("n", "<C-w>",":bdelete<CR>", { noremap = true, silent = true }) 
+vim.keymap.set("n", "<leader>d",":bdelete<CR>", { noremap = true, silent = true }) 
+
+vim.keymap.set("n", "<leader>da", ":bufdo bd<CR>", { silent = true, desc = "Close all buffers" })
+
+vim.keymap.set("n", "<leader>q", ":qa<CR>", { silent = true, desc = "Quit Neovim" })
 
