@@ -10,3 +10,4 @@
 - add lualine
 - getting used to the new bindings
 - project plugin for nvim to move to other project. with one tab
+- 
