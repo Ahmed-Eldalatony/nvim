@@ -9,6 +9,10 @@ return {
       vim.keymap.set("n", "<A-" .. i .. ">", function()
         vim.cmd("BufferLineGoToBuffer " .. i)
       end, { silent = true })
+
+-- Move between buffers using Tab / Shift+Tab
+  vim.keymap.set("n", "<Tab>", ":bnext<CR>", { noremap = true, silent = true })
+  vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>", { noremap = true, silent = true })
     end
   end,
 }
