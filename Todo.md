@@ -1,4 +1,8 @@
-- using tmux prfoessinaly
+- format on save. 
+- html auto tag. 
+- tailwind css. 
+- more lazy loading .
+- auto parirs 
 - using mini.ai
 - learn more about mini.nvim
 - see the the dev guy who just converted to nvim's config

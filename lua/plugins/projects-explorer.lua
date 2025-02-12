@@ -25,11 +25,6 @@ return{
 
 -- Keybindings for project commands
 vim.keymap.set("n", "<Leader>fp", ":NeovimProjectHistory<CR>", { noremap = true, silent = true, desc = "Project history" }),
-  -- not working now
--- vim.keymap.set("n", "<Leader>fl", ":NeovimProjectLoadRecent<CR>", { noremap = true, silent = true, desc = "Load recent project" }),
--- vim.keymap.set("n", "<Leader>fh", ":NeovimProjectLoadHist<CR>", { noremap = true, silent = true, desc = "Load project from history" }),
--- vim.keymap.set("n", "<Leader>pl", ":NeovimProjectLoad<CR>", { noremap = true, silent = true, desc = "Load project" }),
-
   lazy = false,
   priority = 100,
 }

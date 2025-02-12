@@ -6,12 +6,14 @@ vim.keymap.set("n", "k", "gk", { silent = true })
 
 -- General workflow 
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>dc", ":bd<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>da", ":bufdo bd<CR>", { silent = true, desc = "Close all buffers" })
+vim.keymap.set("n", "<leader>d", ":bd<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>D", ":bufdo bd<CR>", { silent = true, desc = "Close all buffers" })
 
-vim.keymap.set("n", "<leader>q", ":qa<CR>", { silent = true, desc = "Quit Neovim" })
-vim.keymap.set("n", "s", ":w<CR>", { silent = true, desc = "Save file" })
-vim.keymap.set("n", "<leader>sa", ":wa<CR>", { silent = true, desc = "Save all files" })
+vim.keymap.set("n", "<leader>q", ":qa!<CR>", { silent = true, desc = "Quit Neovim" })
+vim.keymap.set("n", "<leader>q", ":qa!<CR>", { silent = true, desc = "Quit Neovim" })
+vim.keymap.set("n", "sc", ":w<CR>", { silent = true, desc = "Save file" })
+vim.keymap.set("n", "sa", ":wa<CR>", { silent = true, desc = "Save all files" })
+vim.keymap.set("n", "ss", ":wqa!<CR>", { silent = true, desc = "Save all files" })
 
 vim.keymap.set("n", "<A-w>", ":set wrap!<CR>", { silent = true, desc = "Toggle line wrap" })
 
@@ -45,4 +47,27 @@ vim.opt.wrap = false
 vim.opt.scrolloff = 20
 vim.opt.sidescrolloff = 20
 vim.opt.clipboard = "unnamedplus"
+
+-- Keybindings to toggle floating terminals by numbers (1-9)
+
+  -- vim.api.nvim_set_keymap("n", "<leader>" .. i, "<cmd>lua toggle_floating_terminal(" .. i .. ")<CR>", { noremap = true, silent = true })
+
+-- vim.keymap.set("n", "<leader>i"..num,":ToggleTerm<CR>", { noremap = true, silent = true })
+-- for i = 1, 3 do
+--   vim.keymap.set("n", "<leader>i" .. i, ":ToggleTerm " .. i .. "<CR>", { noremap = true, silent = true })
+--
+--
+-- end
+
+
+local keys = { "a", "s", "d", "f" }
+
+for i, key in ipairs(keys) do
+  vim.keymap.set("n", "<M-" .. key .. ">", ":ToggleTerm " .. i .. "<CR>",{ noremap = true, silent = true })
+  -- Insert mode
+  vim.keymap.set("i", "<M-" .. key .. ">", "<Esc>:ToggleTerm direction=float<CR>", { noremap = true, silent = true })
+  -- Terminal mode
+  vim.keymap.set("t", "<M-" .. key .. ">", "<C-\\><C-n>:ToggleTerm direction=float<CR>", { noremap = true, silent = true })
+
+end
 
