@@ -1,8 +1,9 @@
-- format on save. 
-- html auto tag. 
-- tailwind css. 
+- Aider in the terminal
+- Aider in neovim Integration
+- Aider as auto complete?
+- Floating neo-tree
 - more lazy loading .
-- auto parirs 
+- remove numbers from oil.nvim
 - using mini.ai
 - learn more about mini.nvim
 - see the the dev guy who just converted to nvim's config
@@ -12,5 +13,3 @@
 - change fontsize and line-height
 - add lualine
 - getting used to the new bindings
-- project plugin for nvim to move to other project. with one tab
-- 
