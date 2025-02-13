@@ -8,7 +8,6 @@
 - see the the dev guy who just converted to nvim's config
 - using this config with obsidian. 
 - do work with web
-- make a shortuct for vim sessions
 - explore ctrl-o and ctrl-i
 - change fontsize and line-height
 - add lualine
