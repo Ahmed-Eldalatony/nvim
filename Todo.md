@@ -2,6 +2,7 @@
 - using mini.ai
 - Aider in neovim Integration
 - Aider as auto complete?
+- tailwind completoins
 - Floating neo-tree
 - more lazy loading .
 - remove numbers from oil.nvim
