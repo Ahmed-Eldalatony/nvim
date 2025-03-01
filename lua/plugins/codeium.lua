@@ -16,7 +16,6 @@ return {
 			markdown = false,
 		}
 	end,
-  -- Add the following to prevent loading on .zshrc, .bashrc, etc.
   filename = {
     ".zshrc",
     ".bashrc",
