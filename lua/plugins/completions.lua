@@ -9,6 +9,8 @@ return {
     dependencies = {
       "saadparwaiz1/cmp_luasnip",
       "rafamadriz/friendly-snippets",
+    "tailwind-tools",
+    "onsails/lspkind-nvim",
     },
   },
   { "onsails/lspkind.nvim" }, -- Added for pictograms in completion
@@ -41,6 +43,7 @@ return {
         -- Use lspkind for a nicer formatting with icons
         formatting = {
           format = lspkind.cmp_format({
+          before = require("tailwind-tools.cmp").lspkind_format,
             mode = "symbol_text", -- Show symbol and text
             maxwidth = 50,
             ellipsis_char = "...",
