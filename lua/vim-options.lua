@@ -4,21 +4,24 @@ vim.keymap.set("i", "jk", "<Esc>", { silent = true, desc = "Go normal mode" })
 vim.keymap.set("n", "j", "gj", { silent = true })
 vim.keymap.set("n", "k", "gk", { silent = true })
 vim.keymap.set("t", "<A-c>", "<C-\\><C-n>", { noremap = true, silent = true })
+-- vim.keymap.set("n", "<c-w>", "")
 
 -- General workflow
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>d", ":bd<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>D", ":bufdo bd<CR>", { silent = true, desc = "Close all buffers" })
+--
+-- Navigate vim panes better
 
 vim.keymap.set("n", "<leader>q", ":qa!<CR>", { silent = true, desc = "Quit Neovim" })
 vim.keymap.set("n", "sc", ":w<CR>", { silent = true, desc = "Save file" })
 vim.keymap.set("n", "S", ":wa<CR>", { silent = true, desc = "Save afiles" })
 
-vim.keymap.set("n", "ss", function()
-	vim.cmd("wa") -- Save all files
-	vim.defer_fn(function()
-		vim.cmd("qall!") -- Quit after a small delay
-	end, 100) -- Delay in milliseconds (100ms = 0.1s)
+vim.keymap.set("n", "<leader>ss", function()
+  vim.cmd("wa")    -- Save all files
+  vim.defer_fn(function()
+    vim.cmd("qall!") -- Quit after a small delay
+  end, 100)        -- Delay in milliseconds (100ms = 0.1s)
 end, { noremap = true, silent = true })
 
 vim.keymap.set("n", "<A-w>", ":set wrap!<CR>", { silent = true, desc = "Toggle line wrap" })
@@ -47,8 +50,8 @@ vim.api.nvim_set_keymap("n", "<C-v>", '"+p', { noremap = true, silent = true })
 vim.opt.fillchars:append({ eob = " " })
 
 -- Neovim options
-vim.opt.expandtab = true -- not sure
-vim.opt.smartindent = true -- not sure
+vim.opt.expandtab = true     -- not sure
+vim.opt.smartindent = true   -- not sure
 vim.opt.termguicolors = true -- not sure
 vim.opt.wrap = false
 vim.opt.scrolloff = 20

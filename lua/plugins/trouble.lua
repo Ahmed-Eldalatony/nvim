@@ -5,14 +5,21 @@ return {
 	config = function()
 		require("trouble").setup()
 
-		-- Toggle Trouble (default view, shows workspace diagnostics)
+		-- -- Toggle Trouble (default view, shows workspace diagnostics)
 		vim.api.nvim_set_keymap(
 			"n",
 			"<leader>xx",
-			"<cmd>TroubleToggle<cr>",
+			"<cmd>Trouble diagnostics toggle<cr>",
 			{ silent = true, noremap = true, desc = "Toggle Trouble" }
 		)
-
+		vim.api.nvim_set_keymap(
+			"n",
+			"<leader>td",
+			"<cmd>Trouble diagnostics toggle focus=false filter.buf=0<CR>",
+			{ noremap = true, silent = true }
+		)
+		--
+		--
 		-- Show workspace-wide diagnostics (all files)
 		vim.api.nvim_set_keymap(
 			"n",
@@ -41,7 +48,7 @@ return {
 		vim.api.nvim_set_keymap(
 			"n",
 			"<leader>xq",
-			"<cmd>TroubleToggle quickfix<cr>",
+			"<cmd>Trouble qflist toggle<cr>",
 			{ silent = true, noremap = true, desc = "Show quickfix list" }
 		)
 
