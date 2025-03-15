@@ -45,8 +45,21 @@ return {
 				capabilities = capabilities,
 				settings = {
 					json = {
-						schemas = require("schemastore").json.schemas(), -- Auto-fetch schemas
+						schemas = require("schemastore").json.schemas(),
 						validate = { enable = true },
+					},
+				},
+			})
+
+			-- PHP
+			lspconfig.intelephense.setup({
+				capabilities = capabilities,
+				filetypes = { "php", "blade", "blade.php" },
+				settings = {
+					intelephense = {
+						files = {
+							maxSize = 5000000,
+						},
 					},
 				},
 			})
@@ -58,7 +71,6 @@ return {
 			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
 		end,
 	},
-	-- SchemaStore for JSON schema support
 	{
 		"b0o/schemastore.nvim",
 		lazy = true,
