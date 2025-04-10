@@ -18,10 +18,10 @@ vim.keymap.set("n", "sc", ":w<CR>", { silent = true, desc = "Save file" })
 vim.keymap.set("n", "S", ":wa<CR>", { silent = true, desc = "Save afiles" })
 
 vim.keymap.set("n", "<leader>ss", function()
-  vim.cmd("wa")    -- Save all files
+  vim.cmd("wa")      -- Save all files
   vim.defer_fn(function()
     vim.cmd("qall!") -- Quit after a small delay
-  end, 100)        -- Delay in milliseconds (100ms = 0.1s)
+  end, 100)          -- Delay in milliseconds (100ms = 0.1s)
 end, { noremap = true, silent = true })
 
 vim.keymap.set("n", "<A-w>", ":set wrap!<CR>", { silent = true, desc = "Toggle line wrap" })
@@ -57,7 +57,7 @@ vim.opt.wrap = false
 vim.opt.scrolloff = 20
 vim.opt.sidescrolloff = 20
 
-vim.o.guifont = "Firacode Nerd Font:h14.5"
+vim.opt.guifont = "Operator Mono Lig:h16.4"
 vim.o.linespace = 4
 
 vim.opt.ignorecase = true

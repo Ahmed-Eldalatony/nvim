@@ -23,4 +23,7 @@ local my_group = augroup("MyCustomMappings", { clear = true })
 vim.api.nvim_set_keymap('n', '<leader>i', '<cmd>Centerpad<cr>', { silent = true, noremap = true })
 
 -- or using the lua function
-vim.api.nvim_set_keymap('n', '<leader>i', "<cmd>lua require'centerpad'.toggle{ leftpad = 7, rightpad = 7 }<cr>", { silent = true, noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>i', "<cmd>lua require'centerpad'.toggle{ leftpad = 7, rightpad = 7 }<cr>",
+  { silent = true, noremap = true })
+
+
