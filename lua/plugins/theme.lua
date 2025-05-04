@@ -1,38 +1,48 @@
--- return {
---   -- {
---   --   "catppuccin/nvim",
---   --   lazy = false,
---   --   name = "catppuccin",
---   --   priority = 1000,
---   --   config = function()
---   --     vim.cmd.colorscheme "catppuccin-mocha"
---   --   end
---   -- }
-return { {
-  "marko-cerovac/material.nvim",
-  -- priority = 1000,
-  config = function()
-    -- Set the Material style before applying the theme
-    vim.g.material_style = "deep ocean" -- Use "deep ocean" style
+return {
+  {
+    "marko-cerovac/material.nvim",
+    config = function()
+      local material = require("material")
+      local colors = require("material.colors")
 
-    -- Load and configure Material theme
-    require('material').setup({
-      -- contrast = true, -- Enable darker background
-      -- borders = true, -- Enable window borders
-      contrast = {
-        terminal = true,             -- Enable contrast for the built-in terminal
-        sidebars = true,             -- Enable contrast for sidebar-like windows ( for example Nvim-Tree )
-        floating_windows = true,     -- Enable contrast for floating windows
-        cursor_line = false,         -- Enable darker background for the cursor line
-        lsp_virtual_text = false,    -- Enable contrasted background for lsp virtual text
-        non_current_windows = false, -- Enable contrasted background for non-current windows
-        filetypes = {},              -- Specify which filetypes get the contrasted (darker) background
-      },
-    })
-    -- Apply the theme
-    vim.cmd("colorscheme material")
-  end
-}
+      material.setup({
+        custom_highlights = {
+          CursorLine = { fg = colors.editor.contrast, underline = true },
+          SpellBad = {
+            undercurl = true,
+            italic = true,
+          },
+          Comment = { italic = true, fg = colors.main.gray },
+          -- Example: tab line customization
+          TabLine = function(colors, _)
+            return {
+              fg = colors.main.gray,
+              italic = true,
+            }
+          end,
+          TabLineSel = function(_, highlights)
+            return vim.tbl_extend(
+              "force",
+              highlights.main_highlights.editor()["TabLineSel"],
+              { bold = true }
+            )
+          end,
+        },
+
+        custom_colors = function(colors)
+          -- colors.editor.bg = "#1e1e2e"   -- Replace with your preferred background
+          -- colors.main.purple = "#c678dd" -- Custom purple
+          -- colors.lsp.error = "#ff6c6b"   -- LSP error color
+        end,
+      })
+
+      -- Set the Material style
+      vim.g.material_style = "deep ocean"
+
+      -- Apply the colorscheme
+      vim.cmd("colorscheme material")
+    end
+  }
 }
 
 -- return {

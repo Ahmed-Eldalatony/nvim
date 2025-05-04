@@ -15,7 +15,7 @@ vim.keymap.set("n", "<leader>D", ":bufdo bd<CR>", { silent = true, desc = "Close
 
 vim.keymap.set("n", "<leader>q", ":qa!<CR>", { silent = true, desc = "Quit Neovim" })
 vim.keymap.set("n", "sc", ":w<CR>", { silent = true, desc = "Save file" })
-vim.keymap.set("n", "S", ":wa<CR>", { silent = true, desc = "Save afiles" })
+vim.keymap.set("n", "ss", ":wa<CR>", { silent = true, desc = "Save afiles" })
 
 vim.keymap.set("n", "<leader>ss", function()
   vim.cmd("wa")      -- Save all files
@@ -73,3 +73,12 @@ vim.opt.clipboard = "unnamedplus"
 vim.api.nvim_create_autocmd("WinEnter", { command = "set nowinfixbuf" })
 vim.opt.scrollback = 1000
 vim.keymap.set("n", "<Esc>", ":noh<CR>", { silent = true, desc = "Quit search highlgiht" })
+
+-- Spell check
+vim.opt.spell = true
+vim.opt.spelllang = "en_us"
+vim.opt.spelloptions = { "camel" }
+vim.keymap.set("n", "sg", "zg", { desc = "Add word to dictionary" })
+vim.keymap.set("n", "S", "z=", { desc = "Suggest corrections" })
+vim.keymap.set("n", "sj", "]s", { desc = "Next spelling error" })
+vim.keymap.set("n", "sk", "[s", { desc = "Previous spelling error" })
