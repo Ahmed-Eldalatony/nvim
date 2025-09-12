@@ -31,6 +31,7 @@ vim.cmd("set expandtab")
 vim.cmd("set tabstop=2")
 vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
+
 vim.g.background = "dark"
 -- vim.keymap.del("n", "<C-w>")
 
@@ -51,13 +52,14 @@ vim.opt.fillchars:append({ eob = " " })
 
 -- Neovim options
 vim.opt.expandtab = true     -- not sure
-vim.opt.smartindent = true   -- not sure
+vim.opt.smartindent = false  -- not sure
 vim.opt.termguicolors = true -- not sure
 vim.opt.wrap = false
 vim.opt.scrolloff = 20
 vim.opt.sidescrolloff = 20
 
 vim.opt.guifont = "Operator Mono Lig:h16.4"
+-- font-dejavu-sans-mono-for-powerline
 vim.o.linespace = 4
 
 vim.opt.ignorecase = true
@@ -82,3 +84,17 @@ vim.keymap.set("n", "sg", "zg", { desc = "Add word to dictionary" })
 vim.keymap.set("n", "S", "z=", { desc = "Suggest corrections" })
 vim.keymap.set("n", "sj", "]s", { desc = "Next spelling error" })
 vim.keymap.set("n", "sk", "[s", { desc = "Previous spelling error" })
+
+-- Neovide
+if vim.g.neovide then
+  vim.g.neovide_cursor_vfx_mode = ""
+  vim.g.neovide_cursor_animation_length = 0
+  vim.g.neovide_cursor_trail_size = 0
+end
+
+-- vim.cmd("colorscheme onedark")
+--
+
+vim.keymap.set({ "n", "x" }, "<leader>ca", function()
+  require("tiny-code-action").code_action()
+end, { noremap = true, silent = true })
