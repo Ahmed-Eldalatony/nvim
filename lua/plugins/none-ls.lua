@@ -2,28 +2,50 @@ return {
   "nvimtools/none-ls.nvim",
   config = function()
     local null_ls = require("null-ls")
+    local formatting = null_ls.builtins.formatting
+    local diagnostics = null_ls.builtins.diagnostics
+
     null_ls.setup({
       sources = {
-        null_ls.builtins.formatting.stylua,
-        null_ls.builtins.formatting.biome.with({
-          filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
-          args = {
-            'check',
-            '--write',
-            '--unsafe',
-            '--formatter-enabled=true',
-            '--organize-imports-enabled=true',
-            '--skip-errors',
-            '--use-server',
-            '--stdin-file-path=$FILENAME',
+        -- Lua
+        formatting.stylua,
+
+        -- ✅ Prettierd: Svelte / JS / TS / etc.
+        formatting.prettierd.with({
+          filetypes = {
+            "html",
+            "json",
+            "svelte",
+            "markdown",
+            "css",
+            "javascript",
+            "javascriptreact",
+            "typescript",
+            "typescriptreact",
+            "yaml",
+            "scss",
           },
         }),
-        null_ls.builtins.diagnostics.erb_lint,
-        null_ls.builtins.diagnostics.rubocop,
-        null_ls.builtins.formatting.rubocop,
-        null_ls.builtins.formatting.phpcsfixer,
+
+        -- Ruby
+        diagnostics.erb_lint,
+        diagnostics.rubocop,
+        formatting.rubocop,
+
+        -- PHP
+        formatting.phpcsfixer,
       },
-      filetypes = { "php", "blade", "blade.php" },
+
+      -- Optional: restrict which filetypes this plugin activates on
+      filetypes = {
+        "php", "blade", "blade.php",
+        "svelte", "javascript", "typescript",
+        "gdscript", "godo_resources",
+        "html", "css", "json", "markdown",
+        "yaml", "scss"
+      },
+
+      -- Format on save
       on_attach = function(client, bufnr)
         if client.supports_method("textDocument/formatting") then
           vim.api.nvim_create_autocmd("BufWritePre", {
@@ -36,7 +58,7 @@ return {
       end,
     })
 
-    -- Manual format keymap
+    -- Manual format command
     vim.keymap.set("n", "<leader>gf", function()
       vim.lsp.buf.format({ async = true })
     end, {})
