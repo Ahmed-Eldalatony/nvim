@@ -32,19 +32,23 @@ return {
       end
 
       -- TypeScript
-      lspconfig.ts_ls.setup({ capabilities = capabilities, on_attach = on_attach })
+      vim.lsp.config('ts_ls', { capabilities = capabilities, on_attach = on_attach })
+      vim.lsp.enable('ts_ls')
 
       -- Ruby
-      lspconfig.solargraph.setup({ capabilities = capabilities, on_attach = on_attach })
+      vim.lsp.config('solargraph', { capabilities = capabilities, on_attach = on_attach })
+      vim.lsp.enable('solargraph')
 
       -- HTML
-      lspconfig.html.setup({ capabilities = capabilities, on_attach = on_attach })
+      vim.lsp.config('html', { capabilities = capabilities, on_attach = on_attach })
+      vim.lsp.enable('html')
 
       -- Lua
-      lspconfig.lua_ls.setup({ capabilities = capabilities, on_attach = on_attach })
+      vim.lsp.config('lua_ls', { capabilities = capabilities, on_attach = on_attach })
+      vim.lsp.enable('lua_ls')
 
       -- JSON Language Server w/ SchemaStore
-      lspconfig.jsonls.setup({
+      vim.lsp.config('jsonls', {
         capabilities = capabilities,
         on_attach = on_attach,
         settings = {
@@ -54,9 +58,10 @@ return {
           },
         },
       })
+      vim.lsp.enable('jsonls')
 
       -- PHP
-      lspconfig.intelephense.setup({
+      vim.lsp.config('intelephense', {
         capabilities = capabilities,
         on_attach = on_attach,
         filetypes = { "php", "blade", "blade.php" },
@@ -66,9 +71,10 @@ return {
           },
         },
       })
+      vim.lsp.enable('intelephense')
 
       -- cSpell spell‑checker
-      lspconfig.cspell.setup({
+      vim.lsp.config('cspell', {
         on_attach = on_attach,
         settings = {
           cSpell = {
@@ -80,14 +86,16 @@ return {
         },
         filetypes = { "javascript", "typescript", "markdown", "text", "python" },
       })
+      vim.lsp.enable('cspell')
 
       -- Godot
-      lspconfig.gdscript.setup({ capabilities = capabilities, on_attach = on_attach })
+      vim.lsp.config('gdscript', { capabilities = capabilities, on_attach = on_attach })
+      vim.lsp.enable('gdscript')
 
       -- **Svelte**
       -- mason‑lspconfig will install svelte‑language‑server (registry name "svelte"),
       -- and lspconfig recognizes the "svelte" key out‑of‑the‑box.
-      lspconfig.svelte.setup({
+      vim.lsp.config('svelte', {
         capabilities = capabilities,
         on_attach = on_attach,
         filetypes = { "svelte" },
@@ -96,6 +104,7 @@ return {
           workspace = { didChangeWatchedFiles = { enable = false } },
         },
       })
+      vim.lsp.enable('svelte')
 
       vim.api.nvim_create_autocmd("LspAttach", {
         group = vim.api.nvim_create_augroup("MyLspConfigs", {}),
