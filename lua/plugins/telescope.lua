@@ -17,7 +17,7 @@ return {
         layout_config = {
           width = 0.80,   -- Single width definition
           height = 0.70,  -- Single width definition
-          preview_width = 0.6, -- Preview takes 60% of the width
+          preview_width = 0.4, -- Preview takes 60% of the width
           -- Corrected typo
           prompt_position = "top",
         },
@@ -49,9 +49,11 @@ return {
         builtin.find_files(dropdown_theme)
       end)
 
-      vim.keymap.set("n", "<leader>fw", function()
-        builtin.live_grep(dropdown_theme)
-      end)
+       vim.keymap.set("n", "<leader>fw", function()
+         local word = vim.fn.expand("<cword>")
+         local opts = vim.tbl_extend("force", dropdown_theme, { default_text = word })
+         builtin.live_grep(opts)
+       end)
 
       vim.keymap.set("n", "<leader>o", function()
         builtin.oldfiles(dropdown_theme)
@@ -69,11 +71,15 @@ return {
         builtin.commands(dropdown_theme)
       end)
 
-      vim.keymap.set("n", "<leader>gf", function()
-        builtin.git_files(dropdown_theme)
-      end)
+       vim.keymap.set("n", "<leader>gf", function()
+         builtin.git_files(dropdown_theme)
+       end)
 
-      telescope.load_extension("ui-select")
+       vim.keymap.set("n", "<leader>fr", function()
+         builtin.lsp_references(dropdown_theme)
+       end)
+
+       telescope.load_extension("ui-select")
     end,
   },
 }

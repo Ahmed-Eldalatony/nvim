@@ -1,11 +1,11 @@
 return {
   "rmagatti/auto-session",
-  keys = {
-    -- Will use Telescope if installed or a vim.ui.select picker otherwise
-    { "<leader>fs", "<cmd>SessionSearch<CR>",         desc = "Session search" },
-    { "<leader>ss", "<cmd>SessionSave<CR>",           desc = "Save session" },
-    { "<leader>wa", "<cmd>SessionToggleAutoSave<CR>", desc = "Toggle autosave" },
-  },
+   keys = {
+     -- Will use Telescope if installed or a vim.ui.select picker otherwise
+     { "<leader>fs", "<cmd>AutoSession search<CR>",         desc = "Session search" },
+     { "<leader>ss", "<cmd>AutoSession save<CR>",           desc = "Save session" },
+     { "<leader>wa", "<cmd>AutoSession toggle-autosave<CR>", desc = "Toggle autosave" },
+   },
   config = function()
     -- Set session options for better session management
     vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"

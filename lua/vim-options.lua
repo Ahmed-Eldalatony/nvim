@@ -58,7 +58,7 @@ vim.opt.wrap = false
 vim.opt.scrolloff = 20
 vim.opt.sidescrolloff = 20
 
-vim.opt.guifont = "Operator Mono Lig:h16.4"
+-- vim.opt.guifont = "Operator Mono Lig:h16.4"
 -- font-dejavu-sans-mono-for-powerline
 vim.o.linespace = 4
 
