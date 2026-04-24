@@ -9,8 +9,8 @@ return {
 			direction = "float", -- options: 'horizontal', 'vertical', 'float', 'tab'
 			float_opts = {
 				border = "curved", -- options: 'single', 'double', 'curved', etc.
-				width = 100,
-				height = 28,
+				width = 115,
+				height = 30,
 			},
 		})
 	end,
